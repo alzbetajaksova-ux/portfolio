@@ -394,7 +394,7 @@ mark {
 .stat-num { font-size: clamp(5rem, 11vw, 10rem); line-height: .85; font-weight: 600; letter-spacing: -.06em; }
 .stat-label { font-size: 14px; color: var(--muted); margin-top: 10px; }
 
-.now { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); margin-bottom: clamp(56px, 9vh, 100px); }
+.now { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); margin-bottom: clamp(56px, 9vh, 100px); }
 .now > div { display: flex; flex-direction: column; gap: 4px; padding: 22px 20px 4px 0; font-size: 14px; }
 .now > div + div { border-left: 1px solid var(--line); padding-left: 20px; }
 .now-label { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }

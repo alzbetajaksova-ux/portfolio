@@ -53,18 +53,18 @@ const motionOn = () => root.dataset.motion !== 'off';
 
 /* ---------------- Render experience ---------------- */
 $('#jobs').innerHTML = jobs.map((j, i) => `
-  <details class="job reveal" data-preview="${j.logo}">
+  <details class="job reveal">
     <summary data-cursor="Open">
       <span class="job-period">${esc(j.period)}</span>
       <span class="job-main">
-        <span class="job-title">${esc(j.title)}${j.current ? ' <span class="chip chip-live"><span class="live-dot"></span>Current</span>' : ''}</span>
-        <span class="job-company">${esc(j.company)}</span>
+        <span class="job-title">${esc(j.title)}${j.current ? ' <span class="chip chip-live"><span class="live-dot"></span>Current</span>' : ''}${j.badge ? ` <span class="chip chip-accent">↑ ${esc(j.badge)}</span>` : ''}</span>
+        <span class="job-company"><img class="job-mini" src="${j.logo}" alt="" loading="lazy" />${esc(j.company)}</span>
       </span>
       <span class="job-loc">${esc(j.location)}</span>
       <span class="s-plus" aria-hidden="true"></span>
     </summary>
     <div class="job-body">
-      <img class="job-logo" src="${j.logo}" alt="${esc(j.company)} logo" loading="lazy" />
+      <span aria-hidden="true"></span>
       <div>
         <p>${esc(j.description)}</p>
         <h4>Key Responsibilities</h4>
@@ -183,8 +183,6 @@ const art = $('.art');
 const sticker = $('.sticker');
 const cursor = $('.cursor');
 const cursorLabel = $('.cursor-label');
-const preview = $('.hover-preview');
-const previewImg = $('img', preview);
 
 const pointer = { x: innerWidth / 2, y: innerHeight / 2 };
 const smooth = { x: pointer.x, y: pointer.y };
@@ -219,7 +217,6 @@ function frame() {
 
   if (finePointer) {
     cursor.style.transform = `translate3d(${cur.x}px, ${cur.y}px, 0)`;
-    preview.style.transform = `translate3d(${smooth.x}px, ${smooth.y}px, 0) rotate(${(pointer.x - smooth.x) * 0.08}deg)`;
   }
   requestAnimationFrame(frame);
 }
@@ -232,14 +229,6 @@ if (finePointer) {
     cursor.classList.toggle('big', !!t);
     cursorLabel.textContent = t?.dataset.cursor || '';
     cursor.classList.toggle('labeled', !!t?.dataset.cursor);
-
-    const job = e.target.closest('.job:not([open])');
-    if (job && motionOn()) {
-      previewImg.src = job.dataset.preview;
-      preview.classList.add('show');
-    } else {
-      preview.classList.remove('show');
-    }
   });
   document.addEventListener('pointerleave', () => cursor.classList.add('gone'));
   document.addEventListener('pointerenter', () => cursor.classList.remove('gone'));

@@ -181,6 +181,27 @@ new IntersectionObserver(([en]) => {
 /* ---------------- Pointer-driven motion ---------------- */
 const art = $('.art');
 const progress = $('.progress');
+const pillInd = $('.pill-ind');
+const pillLinks = $$('.pill a[data-sec]');
+const chapters = pillLinks.map((a) => document.getElementById(a.dataset.sec)).filter(Boolean);
+let activeSec = null;
+function setActive(id) {
+  if (id === activeSec) return;
+  activeSec = id;
+  let shown = false;
+  pillLinks.forEach((a) => {
+    const on = a.dataset.sec === id;
+    a.classList.toggle('active', on);
+    if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    if (on && a.offsetParent) {
+      pillInd.style.width = `${a.offsetWidth}px`;
+      pillInd.style.transform = `translateX(${a.offsetLeft}px)`;
+      shown = true;
+    }
+  });
+  pillInd.classList.toggle('on', shown);
+}
+addEventListener('resize', () => { const id = activeSec; activeSec = null; setActive(id); });
 const drifters = $$('[data-drift]');
 const scrubs = $$('[data-scrub]');
 const cursor = $('.cursor');
@@ -219,6 +240,9 @@ function frame() {
   // Scroll-linked motion: progress bar, horizontal drift, word-by-word scrub
   const docH = document.documentElement.scrollHeight - innerHeight;
   progress.style.transform = `scaleX(${docH > 0 ? scrollY / docH : 0})`;
+  let current = null;
+  for (const sec of chapters) if (sec.getBoundingClientRect().top < innerHeight * 0.45) current = sec.id;
+  setActive(current);
   drifters.forEach((el) => {
     const r = el.parentElement.getBoundingClientRect();
     if (r.bottom < -200 || r.top > innerHeight + 200) return;

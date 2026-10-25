@@ -63,7 +63,20 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .muted { color: var(--muted); }
 .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .02em; }
-.label-sub { font-size: 13px; color: var(--muted); }
+.label-sub { font-size: 14px; color: var(--muted); }
+.chapter {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  font-size: clamp(1.15rem, 1.6vw, 1.5rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.15;
+  margin-bottom: 10px;
+}
+.ch-num {
+  font-size: 12px; font-weight: 600; letter-spacing: 0; font-variant-numeric: tabular-nums;
+  padding: 5px 9px; border: 1px solid var(--ink); border-radius: 999px; line-height: 1;
+}
+.ch-title {
+  padding-bottom: 4px;
+  background: linear-gradient(var(--a1), var(--a1)) no-repeat 0 100% / 100% 2px;
+}
 
 /* ---------------- Custom cursor ---------------- */
 .cursor {
@@ -131,8 +144,15 @@ html.fine.has-pointer body:not(.locked) * { cursor: none; }
   box-shadow: 0 12px 30px -12px rgba(0,0,0,.35);
 }
 .pill.show, .pill:focus-within { transform: translate(-50%, 0); opacity: 1; }
-.pill a { padding: 8px 14px; border-radius: 999px; transition: background .25s; }
-.pill a:hover { background: color-mix(in srgb, var(--bg) 16%, transparent); }
+.pill a { position: relative; z-index: 1; padding: 8px 14px; border-radius: 999px; opacity: .62; transition: opacity .3s, color .4s; }
+.pill a:hover { opacity: 1; }
+.pill a.active { opacity: 1; color: var(--ink); }
+.pill-ind {
+  position: absolute; left: 0; top: 5px; bottom: 5px; width: 0;
+  border-radius: 999px; background: var(--bg);
+  opacity: 0; transition: transform .55s var(--ease), width .55s var(--ease), opacity .3s;
+}
+.pill-ind.on { opacity: 1; }
 .pill-tune { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; margin-left: 4px; }
 .tune-dot {
   width: 20px; height: 20px; border-radius: 50%;
@@ -223,16 +243,23 @@ html.has-pointer .art-gloss { opacity: 1; }
   margin: calc(var(--name) * -.5 - 1.2em) 0 0;
   padding-left: .2em;
 }
+.name-wrap { position: relative; font-size: var(--name); margin-top: -.08em; }
 .hero-name {
   position: relative; z-index: 1;
-  margin-top: -.08em;
-  font-size: var(--name);
+  font-size: 1em;
   font-weight: 600;
   line-height: .8;
   letter-spacing: -.065em;
   display: flex; flex-direction: column;
 }
 .hero-name .line { display: block; padding: 0 .04em; }
+/* Outline copy above the photo: where the photo covers the name, only the contour shows. */
+.hero-name.ghost {
+  position: absolute; inset: 0; z-index: 3;
+  color: transparent; -webkit-text-stroke: 1.5px var(--ink);
+  pointer-events: none;
+}
+.hero-name.ghost .degree { -webkit-text-stroke: 0; }
 .hero-name .line:nth-child(2) { align-self: flex-end; margin-top: -.06em; }
 .hero-name .line > span {
   display: block;
@@ -346,10 +373,10 @@ html.has-pointer .art-gloss { opacity: 1; }
 .about-text p { break-inside: avoid; margin-bottom: 1.1em; }
 mark {
   color: var(--ink); font-weight: 600;
-  background: linear-gradient(color-mix(in srgb, var(--ink) 12%, transparent), color-mix(in srgb, var(--ink) 12%, transparent)) no-repeat 0 88% / 0% 34%;
+  background: linear-gradient(color-mix(in srgb, var(--a1) 38%, transparent), color-mix(in srgb, var(--a1) 38%, transparent)) no-repeat 0 92% / 0% .3em;
   transition: background-size 1.2s var(--ease) .4s;
 }
-.reveal.in mark { background-size: 100% 34%; }
+.reveal.in mark { background-size: 100% .3em; }
 
 .stats { display: flex; gap: clamp(32px, 8vw, 120px); margin: 48px 0 clamp(64px, 10vh, 120px); }
 .stats > div { display: flex; flex-direction: column; }
@@ -670,4 +697,5 @@ td.win { color: var(--a1); font-weight: 700; }
   .sheet-hero { flex-direction: column; align-items: flex-start; }
   .project-hero img { width: 88px; height: 88px; }
   .pill a { padding: 8px 10px; }
+  .pill-extra { display: none; }
 }

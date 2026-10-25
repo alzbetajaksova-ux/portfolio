@@ -52,10 +52,14 @@
 
   <!-- ============ FLOATING PILL NAV ============ -->
   <nav class="pill" aria-label="Quick navigation">
-    <a href="#about">About</a>
-    <a href="#experience">Work</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <span class="pill-ind" aria-hidden="true"></span>
+    <a href="#about" data-sec="about">About</a>
+    <a href="#skills" data-sec="skills" class="pill-extra">Skills</a>
+    <a href="#experience" data-sec="experience">Work</a>
+    <a href="#thesis" data-sec="thesis" class="pill-extra">Thesis</a>
+    <a href="#projects" data-sec="projects">Projects</a>
+    <a href="#education" data-sec="education" class="pill-extra">Education</a>
+    <a href="#contact" data-sec="contact">Contact</a>
     <button class="pill-tune" type="button" aria-expanded="false" aria-controls="tuner" data-cursor="Customize">
       <span class="tune-dot" aria-hidden="true"></span><span class="sr-only">Customize look</span>
     </button>
@@ -103,10 +107,16 @@
       </div>
 
       <p class="hero-hi">Hi, I'm</p>
-      <h1 class="hero-name" aria-label="Bc. Alžbeta Jakšová">
-        <span class="line"><span><span class="degree">Bc.</span>Alžbeta</span></span>
-        <span class="line"><span>Jakšová</span></span>
-      </h1>
+      <div class="name-wrap">
+        <h1 class="hero-name" aria-label="Bc. Alžbeta Jakšová">
+          <span class="line"><span><span class="degree">Bc.</span>Alžbeta</span></span>
+          <span class="line"><span>Jakšová</span></span>
+        </h1>
+        <p class="hero-name ghost" aria-hidden="true">
+          <span class="line"><span><span class="degree">Bc.</span>Alžbeta</span></span>
+          <span class="line"><span>Jakšová</span></span>
+        </p>
+      </div>
 
       <div class="hero-foot">
         <p class="hero-tag">Artificial Intelligence student with a Business Informatics background, bridging the gap between <em>technology</em> and <em>business strategy</em></p>
@@ -121,7 +131,7 @@
     <!-- ============ ABOUT ============ -->
     <section id="about" class="section about">
       <div class="label-col">
-        <p class="eyebrow">About Me</p>
+        <p class="chapter"><span class="ch-num">01</span><span class="ch-title">About Me</span></p>
         <p class="label-sub">The "Grown-up Drive" Narrative</p>
       </div>
       <div class="content-col">
@@ -184,7 +194,7 @@
     <!-- ============ SKILLS ============ -->
     <section id="skills" class="block dark skills">
       <div class="block-top">
-        <p class="eyebrow">Skills &amp; Expertise</p>
+        <p class="chapter"><span class="ch-num">02</span><span class="ch-title">Skills &amp; Expertise</span></p>
         <p class="label-sub">Toolkit</p>
         <p class="muted">A diverse skill set developed through academic projects and hands-on learning</p>
       </div>
@@ -221,7 +231,7 @@
     <div class="kinetic" aria-hidden="true"><span data-drift="-0.25">Experience — Professional Journey — Experience — Professional Journey —</span></div>
     <section id="experience" class="section experience">
       <div class="label-col">
-        <p class="eyebrow">Experience</p>
+        <p class="chapter"><span class="ch-num">03</span><span class="ch-title">Experience</span></p>
         <p class="label-sub">Professional Journey</p>
       </div>
       <div class="content-col">
@@ -234,7 +244,7 @@
     <section id="thesis" class="block dark thesis">
       <div class="thesis-inner">
         <div class="block-top">
-          <p class="eyebrow">Research</p>
+          <p class="chapter"><span class="ch-num">04</span><span class="ch-title">Research</span></p>
           <p class="label-sub">Bachelor's Thesis</p>
           <p class="muted">Applying AI and machine learning to solve real-world healthcare challenges</p>
         </div>
@@ -258,7 +268,7 @@
     <!-- ============ PROJECTS ============ -->
     <section id="projects" class="block dark projects">
       <div class="projects-head">
-        <p class="eyebrow">Projects</p>
+        <p class="chapter"><span class="ch-num">05</span><span class="ch-title">Projects</span></p>
         <h2 class="big-title" data-drift="0.12">Featured <em>Work</em></h2>
         <p class="lede">Innovative projects combining AI, sustainability, mobile development, and user-centered design</p>
       </div>
@@ -269,7 +279,7 @@
     <div class="kinetic" aria-hidden="true"><span data-drift="0.25">Education &amp; Languages — Academic Background — Education &amp; Languages —</span></div>
     <section id="education" class="section education">
       <div class="label-col">
-        <p class="eyebrow">Education &amp; Languages</p>
+        <p class="chapter"><span class="ch-num">06</span><span class="ch-title">Education &amp; Languages</span></p>
         <p class="label-sub">Academic Background</p>
       </div>
       <div class="content-col">
@@ -326,7 +336,7 @@
 
     <!-- ============ CONTACT ============ -->
     <section id="contact" class="block dark contact">
-      <p class="eyebrow">Contact</p>
+      <p class="chapter"><span class="ch-num">07</span><span class="ch-title">Contact</span></p>
       <h2 class="contact-title" data-words data-drift="-0.08">Let's Connect</h2>
       <p class="lede">Have a question or want to work together? I'd love to hear from you.</p>
       <a class="mail" href="mailto:alzbetajaksova@gmail.com" data-cursor="Write">alzbetajaksova<wbr />@gmail.com</a>

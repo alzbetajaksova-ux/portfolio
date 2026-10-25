@@ -75,15 +75,17 @@ $('#jobs').innerHTML = jobs.map((j, i) => `
 
 /* ---------------- Render projects ---------------- */
 $('#project-grid').innerHTML = projects.map((p, i) => `
-  <article class="project reveal" style="--g1:${p.colors[0]};--g2:${p.colors[1]}">
+  <article class="project reveal">
     <button class="project-card" type="button" data-project="${p.id}" data-cursor="View" aria-label="View details: ${esc(p.title)}">
       <span class="project-visual">
+        <span class="project-num" aria-hidden="true">0${i + 1}</span>
         <img src="${p.logo}" alt="${esc(p.title)} logo" loading="lazy" />
-        <span class="project-num">0${i + 1}</span>
+        <span class="project-cta">View details ↗</span>
       </span>
     </button>
     <div class="project-meta">
       <h3>${esc(p.title)}</h3>
+      <p class="project-role">${esc(p.role)}</p>
       <p class="muted">${esc(p.shortDescription)}</p>
     </div>
   </article>`).join('');
@@ -93,8 +95,6 @@ const projDialog = $('#project-dialog');
 function openProject(id) {
   const p = projects.find((x) => x.id === id);
   if (!p) return;
-  projDialog.style.setProperty('--g1', p.colors[0]);
-  projDialog.style.setProperty('--g2', p.colors[1]);
   $('.sheet-inner', projDialog).innerHTML = `
     <button class="sheet-close" type="button" data-close aria-label="Close">✕</button>
     <header class="sheet-hero project-hero">
@@ -142,7 +142,7 @@ setInterval(tick, 15000);
 $('.year').textContent = new Date().getFullYear();
 
 /* ---------------- Word-by-word headings ---------------- */
-$$('[data-words]').forEach((el) => {
+$$('[data-words], [data-scrub]').forEach((el) => {
   const words = el.textContent.trim().split(/\s+/);
   el.innerHTML = words.map((w, i) => `<span class="w" style="--i:${i}"><span>${esc(w)}</span></span>`).join(' ');
 });
@@ -180,7 +180,9 @@ new IntersectionObserver(([en]) => {
 
 /* ---------------- Pointer-driven motion ---------------- */
 const art = $('.art');
-const sticker = $('.sticker');
+const progress = $('.progress');
+const drifters = $$('[data-drift]');
+const scrubs = $$('[data-scrub]');
 const cursor = $('.cursor');
 const cursorLabel = $('.cursor-label');
 
@@ -213,7 +215,23 @@ function frame() {
     art.style.setProperty('--mx', `${((smooth.x - r.left) / r.width) * 100}%`);
     art.style.setProperty('--my', `${((smooth.y - r.top) / r.height) * 100}%`);
   }
-  if (motionOn()) sticker.style.setProperty('--rot', `${scrollY * 0.25}deg`);
+
+  // Scroll-linked motion: progress bar, horizontal drift, word-by-word scrub
+  const docH = document.documentElement.scrollHeight - innerHeight;
+  progress.style.transform = `scaleX(${docH > 0 ? scrollY / docH : 0})`;
+  drifters.forEach((el) => {
+    const r = el.parentElement.getBoundingClientRect();
+    if (r.bottom < -200 || r.top > innerHeight + 200) return;
+    const offset = Math.max(-innerHeight, Math.min(innerHeight, r.top + r.height / 2 - innerHeight / 2));
+    el.style.transform = motionOn() ? `translate3d(${offset * +el.dataset.drift}px, 0, 0)` : '';
+  });
+  scrubs.forEach((el) => {
+    const r = el.getBoundingClientRect();
+    const k = motionOn() ? Math.min(1, Math.max(0, (innerHeight * 0.85 - r.top) / (innerHeight * 0.55))) : 1;
+    const words = el.children;
+    const lit = Math.round(k * words.length);
+    for (let i = 0; i < words.length; i++) words[i].classList.toggle('lit', i < lit);
+  });
 
   if (finePointer) {
     cursor.style.transform = `translate3d(${cur.x}px, ${cur.y}px, 0)`;

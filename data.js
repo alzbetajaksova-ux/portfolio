@@ -77,7 +77,6 @@ export const projects = [
     shortDescription:
       'A sophisticated 2D arcade shooter for Android showcasing high-performance mobile development and real-time backend synchronization.',
     logo: '/img/spacevoyager.png',
-    colors: ['#E4E1F2', '#D3CEEA'],
     overview:
       'As a student of Business Informatics at FEI TUKE, I set out to bridge the gap between low-level hardware interaction and modern cloud scalability. Space Voyager is a sophisticated 2D arcade shooter for Android that serves as a technical showcase of high-performance mobile development and real-time backend synchronization.',
     achievements: [
@@ -99,7 +98,6 @@ export const projects = [
     shortDescription:
       'An AI-powered concept for Samsung smart fridges designed to combat global food waste through IoT integration.',
     logo: '/img/saveeats.png',
-    colors: ['#E1EBDF', '#CCDDC9'],
     overview:
       'SaveEats is a high-level business concept and technical framework designed to combat global food waste through AI and IoT integration. Developed for the Samsung smart refrigerator ecosystem, this project involved moving from a raw idea to a €108,220 investment-ready business plan tailored for the Samsung NEXT (Q Fun fund) incubator.',
     achievements: [
@@ -120,7 +118,6 @@ export const projects = [
     shortDescription:
       'An AI-driven accessibility concept focused on making smart homes inclusive for seniors and people with disabilities.',
     logo: '/img/smarterhome.png',
-    colors: ['#DDEBEA', '#C7DEDC'],
     overview:
       'In this project, I moved beyond standard academic requirements to conduct a deep-dive analysis of the Smart Home market. The goal was to evaluate existing ecosystems—Google Home, Apple HomeKit, and Samsung SmartThings—and propose a superior, inclusive alternative: SMARTER HOME.',
     achievements: [
@@ -141,7 +138,6 @@ export const projects = [
     shortDescription:
       'An intelligent platform that transforms unstructured Slovak IT job ads into clear career market data using AI and automated scraping.',
     logo: '/img/careercompass.png',
-    colors: ['#DFE6F1', '#CAD6E8'],
     overview:
       'IT job seekers in the Slovak market face non-transparent salaries, inconsistent skill definitions, and a rapidly shifting landscape. CareerCompass AI tackles all three using a fully automated data pipeline powered by Playwright scraping, Gemma 3 AI analysis, and an interactive Streamlit dashboard—giving users real-time career intelligence updated twice a week.',
     achievements: [

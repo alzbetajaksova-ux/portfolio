@@ -197,6 +197,10 @@ function setActive(id) {
       pillInd.style.width = `${a.offsetWidth}px`;
       pillInd.style.transform = `translateX(${a.offsetLeft}px)`;
       shown = true;
+      // On narrow screens the pill scrolls sideways: keep the active item centred.
+      if (pill.scrollWidth > pill.clientWidth) {
+        pill.scrollTo({ left: a.offsetLeft - (pill.clientWidth - a.offsetWidth) / 2, behavior: motionOn() ? 'smooth' : 'auto' });
+      }
     }
   });
   pillInd.classList.toggle('on', shown);

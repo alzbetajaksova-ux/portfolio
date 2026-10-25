@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-palette="sunset">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alžbeta Jakšová — Business Informatics</title>
+  <meta name="description" content="Alžbeta Jakšová — Business Informatics Student bridging the gap between technology and business strategy." />
+  <meta property="og:title" content="Alžbeta Jakšová — Portfolio" />
+  <meta property="og:description" content="Business Informatics Student bridging the gap between technology and business strategy." />
+  <meta property="og:image" content="/img/headshot.jpg" />
+  <meta name="theme-color" content="#F3F1EC" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script>
+    // Apply saved theme before paint to avoid a flash.
+    try {
+      var s = JSON.parse(localStorage.getItem('aj-prefs') || '{}');
+      if (s.theme) document.documentElement.dataset.theme = s.theme;
+      if (s.palette) document.documentElement.dataset.palette = s.palette;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+  <div class="hover-preview" aria-hidden="true"><img alt="" /></div>
+
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <a href="#top" class="brand" aria-label="Back to top">AJ<span>.</span></a>
+    <p class="topbar-intro">
+      Alžbeta Jakšová — Business Informatics Student<br />
+      <span class="muted">bridging the gap between technology<br />and business strategy</span>
+    </p>
+    <nav class="topbar-nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="topbar-meta">
+      <span>Košice, SK</span>
+      <span class="muted"><time class="clock">--:--</time></span>
+      <a class="cv-link" href="/cv/AlzbetaJaksova_CV_eng_sk.pdf" download data-cursor="Download">Download CV ↓</a>
+    </div>
+  </header>
+
+  <!-- ============ FLOATING PILL NAV ============ -->
+  <nav class="pill" aria-label="Quick navigation">
+    <a href="#about">About</a>
+    <a href="#experience">Work</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <button class="pill-tune" type="button" aria-expanded="false" aria-controls="tuner" data-cursor="Customize">
+      <span class="tune-dot" aria-hidden="true"></span><span class="sr-only">Customize look</span>
+    </button>
+  </nav>
+
+  <div class="tuner" id="tuner" role="dialog" aria-label="Customize the look" hidden>
+    <p class="tuner-title">Make it yours</p>
+    <div class="tuner-row">
+      <span>Mode</span>
+      <div class="seg" role="radiogroup" aria-label="Color mode">
+        <button type="button" data-set-theme="light" role="radio">Light</button>
+        <button type="button" data-set-theme="dark" role="radio">Dark</button>
+      </div>
+    </div>
+    <div class="tuner-row">
+      <span>Palette</span>
+      <div class="swatches" role="radiogroup" aria-label="Palette">
+        <button type="button" data-set-palette="sunset" role="radio" aria-label="Sunset"></button>
+        <button type="button" data-set-palette="lagoon" role="radio" aria-label="Lagoon"></button>
+        <button type="button" data-set-palette="lilac" role="radio" aria-label="Lilac"></button>
+        <button type="button" data-set-palette="citrus" role="radio" aria-label="Citrus"></button>
+      </div>
+    </div>
+    <div class="tuner-row">
+      <span>Motion</span>
+      <div class="seg" role="radiogroup" aria-label="Motion">
+        <button type="button" data-set-motion="on" role="radio">On</button>
+        <button type="button" data-set-motion="off" role="radio">Calm</button>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-glow" aria-hidden="true">
+        <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+      </div>
+
+      <div class="art-wrap">
+        <div class="art">
+          <img class="art-base" src="/img/headshot.jpg" alt="Alžbeta Jakšová" width="1920" height="1920" />
+          <span class="art-tint" aria-hidden="true"></span>
+          <img class="art-reveal" src="/img/headshot.jpg" alt="" aria-hidden="true" />
+          <span class="art-grain" aria-hidden="true"></span>
+        </div>
+        <svg class="sticker" viewBox="0 0 200 200" role="img" aria-label="TUKE Student">
+          <defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+          <circle cx="100" cy="100" r="99" class="sticker-bg" />
+          <text><textPath href="#circ">TUKE Student • Business Informatics • Košice • </textPath></text>
+          <text x="100" y="114" text-anchor="middle" class="sticker-star">✺</text>
+        </svg>
+      </div>
+
+      <p class="hero-hi">Hi, I'm</p>
+      <h1 class="hero-name" aria-label="Alžbeta Jakšová">
+        <span class="line"><span>Alžbeta</span></span>
+        <span class="line"><span>Jakšová</span></span>
+      </h1>
+
+      <div class="hero-foot">
+        <p class="hero-tag">Business Informatics Student bridging the gap between <em>technology</em> and <em>business strategy</em></p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-ink" data-magnetic>Get in Touch</a>
+          <a href="#projects" class="btn btn-line" data-magnetic>View Projects</a>
+        </div>
+        <a href="#about" class="scroll-hint">Scroll to explore <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section about">
+      <div class="label-col">
+        <p class="eyebrow">About Me</p>
+        <p class="label-sub">The "Grown-up Drive" Narrative</p>
+      </div>
+      <div class="content-col">
+        <h2 class="statement" data-words>The youngest in the room, built for the biggest challenges.</h2>
+
+        <div class="about-text reveal">
+          <p>Being the youngest in every room wasn't a disadvantage—it was my <mark>training ground</mark>. It shaped a high level of self-discipline and maturity that allows me to embrace challenges others might shy away from. Instead of waiting for the "right time," I chose a demanding path in Business Informatics at the Technical University of Košice (TUKE), a decision that continues to push me to bridge the gap between technical logic and business impact.</p>
+          <p>My field of study is <mark>Business Informatics</mark>, and I am actively aiming for a career in <mark>data analysis</mark>. I combine a solid foundation in programming and data analysis with hands-on experience in sales and customer relations, allowing me to see software not just as code, but as a solution to a real-world business problem.</p>
+          <p>I don't see my youth as a limitation; I see it as proof that I am ready to <mark>step up, learn fast, and take full ownership</mark> of my work. I thrive in collaborative, mentoring-focused environments where I can translate complex project specifications into high-quality, practical software solutions.</p>
+        </div>
+
+        <div class="stats reveal">
+          <div><span class="stat-num" data-count="5">0</span><span class="stat-label">Languages</span></div>
+          <div><span class="stat-num" data-count="3">0</span><span class="stat-label">School Projects</span></div>
+        </div>
+
+        <div class="strengths">
+          <details class="strength reveal">
+            <summary data-cursor="Open">
+              <span class="s-idx">01</span>
+              <span class="s-title">Collaborative Communicator</span>
+              <span class="s-short">Building positive relationships through clear dialogue and knowledge-sharing</span>
+              <span class="s-plus" aria-hidden="true"></span>
+              <span class="sr-only">Click to learn more</span>
+            </summary>
+            <p>I am a friendly professional who thrives on building positive relationships and maintaining a clear dialogue within development teams. I believe that open communication and mutual support are the keys to solving complex challenges. Whether I am collaborating during code reviews or translating project specifications into software, I focus on knowledge-sharing to ensure the team achieves its collective goals. For me, a mentoring-focused environment is where I can best contribute my energy and grow alongside others.</p>
+          </details>
+          <details class="strength reveal">
+            <summary data-cursor="Open">
+              <span class="s-idx">02</span>
+              <span class="s-title">Disciplined &amp; Results-Driven</span>
+              <span class="s-short">Persistent execution with focus on high-quality, polished solutions</span>
+              <span class="s-plus" aria-hidden="true"></span>
+              <span class="sr-only">Click to learn more</span>
+            </summary>
+            <p>My approach to work is defined by the persistence and consistency I've built through a personal passion for fitness and the precision required in baking. This discipline allows me to take full ownership of my tasks, especially when navigating the frustrations of debugging or implementing complex code independently. I am motivated by the process of turning a creative spark into a high-quality, practical solution, ensuring that every project I touch is both functional and polished.</p>
+          </details>
+          <details class="strength reveal">
+            <summary data-cursor="Open">
+              <span class="s-idx">03</span>
+              <span class="s-title">Adaptable Analytical Thinker</span>
+              <span class="s-short">Bridging technical requirements with user-centric design thinking</span>
+              <span class="s-plus" aria-hidden="true"></span>
+              <span class="sr-only">Click to learn more</span>
+            </summary>
+            <p>As a student of Business Informatics with a keen eye for UX/UI design, I enjoy working with information and spotting patterns that others might miss. This analytical mindset helps me remain precise while remaining highly adaptable to new technologies and evolving challenges. I am a continuous learner who excels at bridging the gap between technical requirements and user-centric design, always pushing myself to grow beyond my current skill set to deliver better results.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Python</span><i>✺</i><span>JavaScript</span><i>✺</i><span>React</span><i>✺</i><span>SQL</span><i>✺</i><span>Data Analysis</span><i>✺</i><span>Business Intelligence</span><i>✺</i><span>UX/UI Design</span><i>✺</i><span>Firebase</span><i>✺</i>
+        <span>Python</span><i>✺</i><span>JavaScript</span><i>✺</i><span>React</span><i>✺</i><span>SQL</span><i>✺</i><span>Data Analysis</span><i>✺</i><span>Business Intelligence</span><i>✺</i><span>UX/UI Design</span><i>✺</i><span>Firebase</span><i>✺</i>
+      </div>
+    </div>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="section skills">
+      <div class="label-col">
+        <p class="eyebrow">Skills &amp; Expertise</p>
+        <p class="label-sub">What I Bring to the Table</p>
+      </div>
+      <div class="content-col">
+        <p class="lede reveal">A diverse skill set developed through academic projects and hands-on learning</p>
+        <div class="skill-grid">
+          <div class="skill-col reveal">
+            <h3>Programming &amp; Development</h3>
+            <p class="muted">Building solutions with modern technologies</p>
+            <ul>
+              <li>Python</li><li>JavaScript</li><li>Object-Oriented Programming</li><li>React Programming Language</li>
+            </ul>
+          </div>
+          <div class="skill-col reveal">
+            <h3>Data &amp; Cloud</h3>
+            <p class="muted">Analyzing, managing, and visualizing data at scale</p>
+            <ul>
+              <li>Data Analysis &amp; Visualization</li><li>SQL Databases</li><li>Firebase &amp; Cloud Integration</li><li>Business Intelligence</li>
+            </ul>
+          </div>
+          <div class="skill-col reveal">
+            <h3>Design &amp; Strategy</h3>
+            <p class="muted">Bridging user needs with business goals</p>
+            <ul>
+              <li>UX/UI Design</li><li>Low-Code/No-Code Platforms</li><li>Communication &amp; Collaboration</li><li>Analytical Problem-Solving</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience" class="section experience">
+      <div class="label-col">
+        <p class="eyebrow">Experience</p>
+        <p class="label-sub">Professional Journey</p>
+      </div>
+      <div class="content-col">
+        <p class="lede reveal">Building real-world skills through hands-on experience</p>
+        <div class="jobs" id="jobs"></div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="section projects">
+      <div class="projects-head">
+        <p class="eyebrow">Projects</p>
+        <h2 class="big-title">Featured <em>Work</em></h2>
+        <p class="lede">Innovative projects combining AI, sustainability, mobile development, and user-centered design</p>
+      </div>
+      <div class="project-grid" id="project-grid"></div>
+    </section>
+
+    <!-- ============ THESIS ============ -->
+    <section id="thesis" class="thesis">
+      <div class="thesis-inner">
+        <div class="thesis-top">
+          <p class="eyebrow">Research</p>
+          <p class="label-sub">Bachelor's Thesis</p>
+          <p class="muted">Applying AI and machine learning to solve real-world healthcare challenges</p>
+        </div>
+        <h2 class="thesis-title" data-words>Healthcare Insurance Fraud Detection</h2>
+        <p class="thesis-sub"><em>using Cost-Sensitive Hybrid Models</em></p>
+        <div class="thesis-body">
+          <p class="reveal">This research focuses on developing an advanced analytical framework to identify fraudulent activities in healthcare insurance. Unlike traditional models that focus solely on statistical accuracy, this solution integrates Cost-Sensitive Learning to minimize actual financial losses.</p>
+          <ul class="tags reveal">
+            <li>Machine Learning</li><li>XGBoost</li><li>Cost-Sensitive Learning</li><li>Fraud Detection</li><li>XAI/SHAP</li>
+          </ul>
+        </div>
+        <div class="thesis-stats">
+          <div class="reveal"><span class="t-num">93.3%</span><span>Fraud captured (top 10% audit)</span></div>
+          <div class="reveal"><span class="t-num">0.759</span><span>Gini coefficient (max: 0.784)</span></div>
+          <div class="reveal"><span class="t-num">12.4×</span><span>Better than random selection</span></div>
+        </div>
+        <button class="btn btn-paper" type="button" data-open="thesis-dialog" data-magnetic>Click to expand — full summary ↗</button>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION & LANGUAGES ============ -->
+    <section id="education" class="section education">
+      <div class="label-col">
+        <p class="eyebrow">Education &amp; Languages</p>
+        <p class="label-sub">Academic Background</p>
+      </div>
+      <div class="content-col">
+        <p class="lede reveal">Building a strong foundation in technology and business</p>
+        <div class="edu-grid">
+          <article class="edu reveal">
+            <p class="chip chip-live"><span class="live-dot"></span>Current</p>
+            <h3>Business Informatics</h3>
+            <p class="muted">Technical University of Košice (TUKE)</p>
+            <p>Pursuing a degree that combines business strategy with information technology, preparing for roles that bridge the gap between technical and business teams.</p>
+            <h4>What I'm Learning</h4>
+            <ul class="learn">
+              <li><strong>Programming Focus:</strong> Object-Oriented Programming principles with Java, C, and Python — emphasis on code implementation and debugging</li>
+              <li><strong>Data &amp; Databases:</strong> SQL databases, data modeling, applied informatics, and process optimization</li>
+              <li><strong>Career Preparation:</strong> Roles in data analysis, business intelligence, and IT consulting</li>
+            </ul>
+            <h4>Core Competencies</h4>
+            <ul class="tags">
+              <li>OOP Principles</li><li>SQL &amp; Data Modeling</li><li>Business Analysis</li><li>Process Optimization</li><li>Data Analytics</li><li>IT Project Management</li>
+            </ul>
+          </article>
+          <article class="langs reveal">
+            <h3>Languages</h3>
+            <ul class="lang-list">
+              <li style="--p:100%"><span>Slovak</span><span class="lvl">Native</span><i></i></li>
+              <li style="--p:85%"><span>Czech</span><span class="lvl">C1</span><i></i></li>
+              <li style="--p:75%"><span>English</span><span class="lvl">B2</span><i></i></li>
+              <li style="--p:55%"><span>Russian</span><span class="lvl">B1</span><i></i></li>
+              <li style="--p:35%"><span>Italian</span><span class="lvl">A2</span><i></i></li>
+            </ul>
+            <p class="muted">Multilingual capabilities enable effective communication in international environments and with diverse clientele.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section contact">
+      <p class="eyebrow">Contact</p>
+      <h2 class="contact-title" data-words>Let's Connect</h2>
+      <p class="lede">Have a question or want to work together? I'd love to hear from you.</p>
+      <a class="mail" href="mailto:alzbetajaksova@gmail.com" data-cursor="Write">alzbetajaksova<wbr />@gmail.com</a>
+      <div class="contact-grid">
+        <div><p class="eyebrow">Email</p><a href="mailto:alzbetajaksova@gmail.com">alzbetajaksova@gmail.com</a></div>
+        <div><p class="eyebrow">Phone</p><a href="tel:+421907151698">+421 907 151 698</a></div>
+        <div><p class="eyebrow">Location</p><p>Slovenské Nové Mesto, Slovakia</p></div>
+        <div class="avail">
+          <p class="chip chip-live"><span class="live-dot"></span>Available for opportunities</p>
+          <p class="muted">Currently seeking internships and entry-level positions in business informatics, data analysis, or tech-business hybrid roles.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-row">
+      <a href="#top" class="brand">AJ<span>.</span></a>
+      <p>© <span class="year"></span> Alžbeta Jakšová. Made with <span class="heart">♥</span> in Slovakia</p>
+      <nav><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
+    </div>
+    <p class="footer-word" aria-hidden="true">Jakšová</p>
+  </footer>
+
+  <!-- ============ PROJECT DIALOG ============ -->
+  <dialog class="sheet" id="project-dialog" aria-labelledby="pd-title">
+    <div class="sheet-inner"></div>
+  </dialog>
+
+  <!-- ============ THESIS DIALOG ============ -->
+  <dialog class="sheet" id="thesis-dialog" aria-labelledby="td-title">
+    <div class="sheet-inner">
+      <button class="sheet-close" type="button" data-close aria-label="Close">✕</button>
+      <header class="sheet-hero thesis-hero">
+        <p class="eyebrow">Bachelor's Thesis</p>
+        <h3 id="td-title">Healthcare Insurance Fraud Detection</h3>
+        <p class="sheet-role"><em>using Cost-Sensitive Hybrid Models</em></p>
+      </header>
+      <div class="sheet-body">
+        <h4>Project Summary</h4>
+        <p>This research focuses on developing an advanced analytical framework to identify fraudulent activities in healthcare insurance. Unlike traditional models that focus solely on statistical accuracy, this solution integrates <strong>Cost-Sensitive Learning</strong> to minimize actual financial losses. By combining supervised and unsupervised machine learning (<strong>Hybrid Architecture</strong>), the project aims to maximize cost savings for insurance providers and automate the detection of both known and emerging fraud patterns.</p>
+
+        <h4>🔍 Motivation &amp; Problem Definition</h4>
+        <p>Healthcare fraud (such as phantom billing or upcoding) causes massive global financial losses, leading to higher premiums and reduced quality of care. Traditional manual audits are slow and often ineffective. I decided to tackle this issue because current academic models often ignore the economic reality—the fact that an undetected high-value fraud is far more costly for an insurer than a minor administrative error.</p>
+
+        <h4>📚 Literature Review &amp; Theoretical Foundation</h4>
+        <p>Through a rigorous analysis of current research (including 2024 and 2025 studies), I identified three key pillars and three main challenges in modern fraud detection:</p>
+        <ul class="bullets">
+          <li><strong>Technology Leaders:</strong> Models such as XGBoost and LightGBM demonstrate the highest stability and performance.</li>
+          <li><strong>Handling Imbalance:</strong> The hybrid SMOTE-ENN technique, combined with Boruta feature selection, successfully addresses the extreme rarity of fraud cases in datasets.</li>
+          <li><strong>Anomaly Detection:</strong> Integrating unsupervised learning (Isolation Forest) is essential for identifying "zero-day fraud" (new, previously unknown tactics).</li>
+        </ul>
+        <p class="callout"><strong>Identified Gaps:</strong> Cost asymmetry (ignoring financial impact), low interpretability ("black-box" models), and poor integration of supervised and unsupervised approaches.</p>
+
+        <h4>🛠️ Proposed Solution (Practical Implementation)</h4>
+        <p>My work builds on these findings by proposing a <strong>Dual Detection Architecture</strong> with the following innovations:</p>
+        <div class="tech-grid">
+          <div><h5>Economic Optimization</h5><p>Cost-Sensitive Learning: The model is penalized for errors proportional to their financial impact, aiming for maximum financial recovery rather than just accuracy percentages.</p></div>
+          <div><h5>Hybrid Architecture</h5><p>A combination of Cost-Sensitive XGBoost (for known patterns) and Isolation Forest (for new anomalies).</p></div>
+          <div><h5>Transparency (XAI)</h5><p>Utilizing SHAP (Explainable AI) methods to provide medical auditors with clear explanations of why a specific claim was flagged as high-risk.</p></div>
+          <div><h5>Decision Module</h5><p>An automated risk-level categorization system (High, Medium, Low) to streamline manual audit workflows.</p></div>
+        </div>
+
+        <h4>📊 Dataset &amp; Methodology</h4>
+        <p>Built and validated end-to-end using the <strong>CRISP-DM methodology</strong> on the public Kaggle/CMS Medicare dataset (<strong>558,211 claims</strong> from <strong>5,410 providers</strong>, 2008–2009). Raw claim-level data was aggregated to the provider level and engineered into <strong>10 ratio-based risk indicators</strong> (e.g. AvgAmtPerClaim, Inpatient_Ratio, HealthRiskScore), addressing a severe 9.4% fraud class imbalance via <strong>SMOTE-ENN</strong> before training.</p>
+        <div class="mini-stats">
+          <div><b>558k+</b><span>Claims</span></div>
+          <div><b>5,410</b><span>Providers</span></div>
+          <div><b>10</b><span>Risk Indicators</span></div>
+          <div><b>9.4%</b><span>Fraud Imbalance</span></div>
+        </div>
+
+        <h4>📈 Results &amp; Model Performance</h4>
+        <p>On the test set, the hybrid model outperformed standalone XGBoost on the metrics that matter most for fraud detection. Both models reached <strong>AUC-ROC = 0.947</strong>, but the hybrid achieves higher precision — meaning <strong>far fewer wasted audits</strong> on legitimate providers, an economically sound trade-off for insurers with limited audit capacity.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Metric</th><th>Hybrid Model</th><th>XGBoost</th></tr></thead>
+            <tbody>
+              <tr><td>Precision</td><td class="win">0.585</td><td>0.420</td></tr>
+              <tr><td>F1-Score</td><td class="win">0.658</td><td>0.558</td></tr>
+              <tr><td>Accuracy</td><td class="win">0.927</td><td>0.877</td></tr>
+              <tr><td>AUC-ROC</td><td>0.947</td><td>0.947</td></tr>
+              <tr><td>Recall</td><td>0.752</td><td>0.832</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>💰 Economic Impact <span class="muted">(Key Result)</span></h4>
+        <p>The thesis's core contribution: evaluating the model not just statistically, but <strong>economically</strong>, via <strong>Lorenz curve and Gini coefficient</strong> analysis. By auditing only the <strong>top 10% riskiest providers</strong>, the model captures <strong>93.3% of total fraudulent financial exposure</strong> (vs. just 7.5% for random selection) — reaching a Gini coefficient of <strong>0.759</strong>, close to the theoretical maximum of <strong>0.784</strong>. This shows the model nearly perfectly prioritizes where audit resources will yield the highest financial recovery.</p>
+        <div class="mini-stats three">
+          <div><b>93.3%</b><span>Fraud captured (top 10% audit)</span></div>
+          <div><b>0.759</b><span>Gini coefficient (max: 0.784)</span></div>
+          <div><b>12.4×</b><span>Better than random selection</span></div>
+        </div>
+        <div class="figures">
+          <figure><img src="/img/thesis-lorenz.png" alt="Lorenz curve of financial exposure concentration" loading="lazy" /><figcaption>Lorenz curve — Gini 0.759 (hybrid) vs 0.784 (ideal)</figcaption></figure>
+          <figure><img src="/img/thesis-capacity.png" alt="Captured fraud exposure vs audit capacity" loading="lazy" /><figcaption>Captured fraud exposure vs. audit capacity</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="/main.js" type="module"></script>
+</body>
+</html>

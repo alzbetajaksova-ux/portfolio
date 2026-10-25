@@ -223,7 +223,59 @@ addEventListener('pointermove', (e) => {
 }, { passive: true });
 addEventListener('scroll', () => { scrollY = window.scrollY; }, { passive: true });
 
-function frame() {
+/* ---------------- Hero dot field ---------------- */
+// A quiet grid of dots; near the pointer they grow, lean in and pick up the accent.
+const dotsCanvas = $('.hero-dots');
+const dctx = dotsCanvas.getContext('2d');
+const GAP = 26;
+let dotsW = 0, dotsH = 0, dotColors = null, colorTick = 0;
+function sizeDots() {
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  dotsW = hero.offsetWidth; dotsH = hero.offsetHeight;
+  dotsCanvas.width = dotsW * dpr; dotsCanvas.height = dotsH * dpr;
+  dctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+sizeDots();
+addEventListener('resize', sizeDots);
+function drawDots(t) {
+  if (!dotColors || ++colorTick % 60 === 0) {
+    const cs = getComputedStyle(root);
+    dotColors = { ink: cs.getPropertyValue('--ink').trim(), accent: cs.getPropertyValue('--a1').trim() };
+  }
+  dctx.clearRect(0, 0, dotsW, dotsH);
+  const r = dotsCanvas.getBoundingClientRect();
+  const live = motionOn();
+  const hasPtr = live && root.classList.contains('has-pointer');
+  // Without a mouse, a slow drifting focus point keeps the field alive.
+  const px = hasPtr ? smooth.x - r.left : dotsW * (0.5 + 0.35 * Math.sin(t / 3200));
+  const py = hasPtr ? smooth.y - r.top : dotsH * (0.45 + 0.25 * Math.cos(t / 4100));
+  const R = Math.min(220, Math.max(140, dotsW * 0.14));
+  dctx.fillStyle = dotColors.ink;
+  dctx.globalAlpha = 0.16;
+  dctx.beginPath();
+  const near = [];
+  for (let y = GAP / 2; y < dotsH; y += GAP) {
+    for (let x = GAP / 2; x < dotsW; x += GAP) {
+      const dx = px - x, dy = py - y;
+      const d = Math.hypot(dx, dy);
+      if (live && d < R) { near.push([x, y, dx, dy, 1 - d / R]); continue; }
+      dctx.moveTo(x + 1, y);
+      dctx.arc(x, y, 1, 0, Math.PI * 2);
+    }
+  }
+  dctx.fill();
+  dctx.fillStyle = dotColors.accent;
+  for (const [x, y, dx, dy, k] of near) {
+    const e = k * k;
+    dctx.globalAlpha = 0.2 + e * 0.7;
+    dctx.beginPath();
+    dctx.arc(x + dx * e * 0.18, y + dy * e * 0.18, 1 + e * 2.4, 0, Math.PI * 2);
+    dctx.fill();
+  }
+  dctx.globalAlpha = 1;
+}
+
+function frame(t) {
   const lerp = motionOn() ? 0.08 : 1;
   smooth.x += (pointer.x - smooth.x) * lerp;
   smooth.y += (pointer.y - smooth.y) * lerp;
@@ -239,6 +291,7 @@ function frame() {
     const r = art.getBoundingClientRect();
     art.style.setProperty('--mx', `${((smooth.x - r.left) / r.width) * 100}%`);
     art.style.setProperty('--my', `${((smooth.y - r.top) / r.height) * 100}%`);
+    drawDots(t || 0);
   }
 
   // Scroll-linked motion: progress bar, horizontal drift, word-by-word scrub

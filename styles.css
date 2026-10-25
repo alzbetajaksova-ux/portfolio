@@ -202,15 +202,7 @@ html.fine.has-pointer body:not(.locked) * { cursor: none; }
   padding: 116px var(--gutter) 24px;
   display: flex; flex-direction: column;
 }
-.hero-glow { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
-.blob {
-  position: absolute; border-radius: 50%; filter: blur(100px); opacity: .16;
-  transition: background .6s;
-}
-.b1 { width: 42vw; height: 42vw; left: -8vw; top: 8vh; background: var(--a1); transform: translate(calc(var(--nx) * 60px), calc(var(--ny) * 40px)); }
-.b2 { width: 34vw; height: 34vw; right: -6vw; top: 18vh; background: var(--a2); transform: translate(calc(var(--nx) * -80px), calc(var(--ny) * -50px)); }
-.b3 { width: 30vw; height: 30vw; left: 38vw; bottom: -12vw; background: var(--a3); transform: translate(calc(var(--nx) * 40px), calc(var(--ny) * -70px)); }
-:root[data-theme="dark"] .blob { opacity: .14; }
+.hero-dots { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
 
 /* The photo sits above the name, so the name tucks underneath it. */
 .art-wrap { position: relative; z-index: 2; width: max-content; margin: 0 auto; }
@@ -240,6 +232,19 @@ html.fine.has-pointer body:not(.locked) * { cursor: none; }
   opacity: 0; transition: opacity .6s;
 }
 html.has-pointer .art-gloss { opacity: 1; }
+/* Print-style crop marks and a vertical caption frame the photo */
+.crop { position: absolute; width: 16px; height: 16px; border: 0 solid var(--ink); pointer-events: none; animation: fade 1.2s .6s both; }
+.crop.tl { left: -14px; top: -14px; border-left-width: 1px; border-top-width: 1px; }
+.crop.tr { right: -14px; top: -14px; border-right-width: 1px; border-top-width: 1px; }
+.crop.bl { left: -14px; bottom: -14px; border-left-width: 1px; border-bottom-width: 1px; }
+.crop.br { right: -14px; bottom: -14px; border-right-width: 1px; border-bottom-width: 1px; }
+.art-side {
+  position: absolute; left: calc(100% + 18px); top: 0;
+  display: flex; gap: 14px;
+  writing-mode: vertical-rl;
+  font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+  animation: fade 1.2s .8s both;
+}
 @keyframes art-in { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
 
 .hero-hi {
@@ -687,6 +692,7 @@ td.win { color: var(--a1); font-weight: 700; }
   .hero { padding-top: 90px; min-height: auto; --name: clamp(3.2rem, 16vw, 6rem); }
   .hero-foot { padding-top: 40px; }
   .art { height: auto; width: min(64vw, 42svh); }
+  .art-side { left: calc(100% + 10px); font-size: 10px; }
   .strength summary { grid-template-columns: 32px 1fr 22px; }
   .strength .s-short { grid-column: 2; grid-row: 2; }
   .strength .s-plus { grid-column: 3; grid-row: 1; }

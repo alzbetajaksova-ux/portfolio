@@ -3,14 +3,14 @@
 
 export const jobs = [
   {
-    title: 'Data Scientist',
+    title: 'Data Science Intern',
     company: 'Caterpillar Slovakia s.r.o',
     location: 'Košice, Slovakia',
     period: 'October 2026 - Present',
     logo: '/img/caterpillar.png',
     badge: 'Promoted',
     description:
-      'After my front-end internship, I moved into a data science role at Caterpillar, applying machine learning to sequential and time-series data in a team that works with Python, notebooks and code review every day.',
+      'After my front-end internship, I moved into a data science internship at Caterpillar alongside my Master's studies, applying machine learning to sequential and time-series data in a team that works with Python, notebooks and code review every day.',
     highlights: [
       'Build and evaluate machine learning models on time-series data using Python (pandas, NumPy) and PyTorch / TensorFlow',
       'Apply attention-based and Transformer methods to sequential data',
